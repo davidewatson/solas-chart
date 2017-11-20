@@ -3,13 +3,13 @@
 [[ -z "$CHART_NAME"   ]] && \
   {
     echo >& "Var '$CHART_NAME' is empty. Cannot continue."
-    exit 2
+    exit 1
   }
 
 [[ ! -d "${CHART_NAME}" ]] && \
   {
     echo >&2 "Directory for chart '$CHART_NAME' does not exist."
-    exit 4
+    exit 1
   }
 
 helm lint ${CHART_NAME}
